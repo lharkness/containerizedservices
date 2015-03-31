@@ -19,6 +19,13 @@ do
 	shift
 done
 
+volume_spec=$(grep @Volume $serviceName/Dockerfile | cut -d ' ' --f 3)
+
+if [[ -n "$volume_spec" ]]
+then
+	dockerRunCmd+=" -v $volume_spec"
+fi
+
 dockerRunCmd+=" --name $serviceName lharkness/$serviceName"
 
 docker $dockerRunCmd

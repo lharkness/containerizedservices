@@ -3,3 +3,8 @@ location /greeting_service/ {
     proxy_pass http://172.17.42.1:5000;
     proxy_set_header Host $host;
 }
+
+location /application_service/ {
+	proxy_pass http://172.17.42.1:5010;
+	proxy_set_header Host $host;
+}

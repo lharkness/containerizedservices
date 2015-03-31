@@ -15,6 +15,7 @@ RUN \
   chown -R www-data:www-data /var/lib/nginx
 
 # Define mountable directories.
+# @Volume /home/core/docker-containers/main-web/forwards.txt:/etc/nginx/includes/forwards.txt
 VOLUME ["/etc/nginx/sites-enabled","/etc/nginx", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx", "/var/www/html"]
 
 # copy our content
