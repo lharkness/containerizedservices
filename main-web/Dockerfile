@@ -28,6 +28,8 @@ RUN mkdir -p /usr/share/nginx/logs/
 
 #copy our configuration
 COPY default /etc/nginx/sites-enabled/
+RUN mkdir -p /etc/nginx/includes
+COPY forwards.txt /etc/nginx/includes/
 
 # Define default command.
 CMD ["nginx"]
