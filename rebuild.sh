@@ -13,9 +13,9 @@ docker rm $serviceName
 docker build -t lharkness/$serviceName $serviceName
 
 dockerRunCmd=" run -d " 
-while [ $# -gt 1 ] 
+for port in $(grep EXPOSE $serviceName/Dockerfile | cut -d ' ' --f 2-) 
 do
-	dockerRunCmd+=" -p $2:$2"
+	dockerRunCmd+=" -p $port:$port"
 	shift
 done
 
