@@ -8,3 +8,18 @@ location /application_service/ {
 	proxy_pass http://172.17.42.1:5010;
 	proxy_set_header Host $host;
 }
+
+location /testbed/ {
+	proxy_pass http://172.17.42.1:5020;
+	proxy_set_header Host $host;
+}
+
+location /greeting/ {
+	proxy_pass http://172.17.42.1:5010;
+	proxy_set_header Host $host;
+}
+
+location /javatest/ {
+	proxy_pass http://172.17.42.1:8080/hello-world;
+	proxy_set_header Host $host;
+}
